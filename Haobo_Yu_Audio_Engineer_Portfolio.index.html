@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Haobo Yu - Audio & Video Integration Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px 0 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            padding: 0 10px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info h2 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item i {
+            color: #3498db;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        section {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        section h2 i {
+            color: #3498db;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-card {
+            background: #f1f9ff;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .skill-card h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .skill-card ul {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        .experience-item {
+            margin-bottom: 18px;
+            border-left: 3px solid #3498db;
+            padding-left: 12px;
+        }
+        
+        .experience-item h3 {
+            color: #2c3e50;
+            margin-bottom: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .experience-item .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .experience-item ul {
+            list-style: disc;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        .portfolio-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-card:active {
+            transform: translateY(-3px);
+        }
+        @media (min-width: 768px) {
+            .portfolio-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .portfolio-card .card-header {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .portfolio-card .card-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .portfolio-card .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .portfolio-card .card-body {
+            padding: 15px;
+        }
+        
+        .portfolio-card .card-body p {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .portfolio-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0;
+        }
+        
+        .portfolio-card .tag {
+            background: #e1f0fa;
+            color: #2c3e50;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        
+        .portfolio-card .links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        
+        .portfolio-card a {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .portfolio-card a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* 适配小屏手机 */
+        @media (max-width: 375px) {
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-card .card-img {
+                height: 140px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- 个人头像 -->
+            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/f19d68965e0640acba6fcc364aeb963b.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225065610BEC9C560CAF6E8C82456&rrcfp=dafada99&x-expires=2088197770&x-signature=ZvkToN4sb1MwuEojWEJDkqADlUk%3D" alt="Haobo Yu Profile Photo" class="profile-img">
+            <h1>Haobo Yu (俞浩博)</h1>
+            <p>Audio & Video Integration Engineer | Sound Recording & Mixing Specialist</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+86 18661454658</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>hehejiqi@163.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Minhang District, Shanghai</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Master of Recording Arts, Shanghai Conservatory of Music</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Skills -->
+        <section>
+            <h2><i class="fas fa-cogs"></i> Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Audio & Video Systems</h3>
+                    <ul>
+                        <li>NDI/Dante/DMX Protocol</li>
+                        <li>Acoustic Environment Design</li>
+                        <li>4/7.1.4 Channel Surround Sound</li>
+                        <li>Live Broadcast Signal Processing</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Equipment Operation</h3>
+                    <ul>
+                        <li>Mixing Console (DiGiCo SD7/YAMAHA CL3)</li>
+                        <li>Microphone Array Setup</li>
+                        <li>RME/AKG Professional Audio Equipment</li>
+                        <li>Dirac Live Tuning System</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Software Proficiency</h3>
+                    <ul>
+                        <li>Pro Tools/Logic/Cubase</li>
+                        <li>Adobe Creative Suite</li>
+                        <li>Dirac Live/REW Testing Tools</li>
+                        <li>Dolby Atmos Renderer</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Core Competencies</h3>
+                    <ul>
+                        <li>On-site Audio Control & Troubleshooting</li>
+                        <li>Sound Recording & Mixing Engineering</li>
+                        <li>Acoustic Measurement & Calibration</li>
+                        <li>Client Demo & Technical Support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Dirac Technology (Shanghai) Co., Ltd. - Intern</h3>
+                <div class="date">Aug 2024 - Dec 2024</div>
+                <ul>
+                    <li>Completed BYD mobile phone tuning project in Shenzhen, troubleshooting compatibility issues of Dirac technology integration</li>
+                    <li>Conducted Audi car Demo presentation in Beijing, showcasing core Dirac technology to clients</li>
+                    <li>Tested and calibrated 2.0/2.1/2.5 channel home theater systems using Dirac Live and REW tools</li>
+                    <li>Provided technical support for Sonos/Sonoc clients, demonstrating audio tuning effects</li>
+                    <li>Participated in acoustic environment ART testing with headquarters technical team</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Shanghai Adagio Recording Studio - Sound Engineer/Cameraman</h3>
+                <div class="date">Mar 2022 - Oct 2024</div>
+                <ul>
+                    <li>Responsible for recording, mixing and post-production of music albums for famous artists including Liao Changyong and Lang Lang</li>
+                    <li>Designed and implemented multi-channel surround sound systems for indoor concerts</li>
+                    <li>Provided remote interview technical support via Zoom/Teams/Tencent Meeting</li>
+                    <li>Completed video editing, audio processing and graphic design using Adobe Suite</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Shanghai Concert Hall - Intern</h3>
+                <div class="date">Jul 2024 - Jan 2025</div>
+                <ul>
+                    <li>Controlled live audio for concert hall events, including live broadcast signal collection and processing</li>
+                    <li>Participated in planning, recording and production of "On Stage" video program</li>
+                    <li>Optimized outdoor recording solutions for erhu solo performances in harsh acoustic environments</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Shanghai Meijing Culture Communication Co., Ltd. - Live Audio Controller</h3>
+                <div class="date">Aug 2022 - Nov 2022</div>
+                <ul>
+                    <li>Controlled live audio for 61 performances of original musical "If" during Shanghai-Beijing tour</li>
+                    <li>Designed overall sound system and managed equipment for immersive theater performances</li>
+                    <li>Resolved critical audio emergencies to ensure smooth performances</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section>
+            <h2><i class="fas fa-folder-open"></i> Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Work 1: 成都大运会《成就梦想》 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Achieve Your Dreams</h3>
+                    </div>
+                    <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/385e4b0315b941aba4ecc9600c6a5bbf.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=202602250658535F942EA759F61775FE4F&rrcfp=dafada99&x-expires=2088197933&x-signature=SaUi6k%2BGCqpb7uzvLfV%2FJIAOYAs%3D" alt="Achieve Your Dreams Recording" class="card-img">
+                    <div class="card-body">
+                        <p>Official theme song for Chengdu FISU World University Games, performed by Liao Changyong</p>
+                        <div class="tags">
+                            <span class="tag">Vocal Recording</span>
+                            <span class="tag">Mixing</span>
+                            <span class="tag">Pro Tools</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://music.163.com/#/song?id=2065916249" target="_blank">Listen on NetEase Music</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 2: 二胡独奏《微风》 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Breeze (Erhu Solo)</h3>
+                    </div>
+                    <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/9c3f68cb68a4411a825b7587ac7a49e2.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225065942E91BE5FED19815C37B5F&rrcfp=dafada99&x-expires=2088197982&x-signature=a5uBaAyj1njZThBzOXGai5ptxrc%3D" alt="Breeze Erhu Solo" class="card-img">
+                    <div class="card-body">
+                        <p>Outdoor erhu solo for Shanghai Concert Hall "On Stage" program</p>
+                        <div class="tags">
+                            <span class="tag">Outdoor Recording</span>
+                            <span class="tag">Noise Reduction</span>
+                            <span class="tag">Audio-Video Sync</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://www.bilibili.com/video/BV1NUcoehE86/" target="_blank">Watch on Bilibili</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 3: 音乐剧《如果》 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Musical "If"</h3>
+                    </div>
+                    <img src="https://p6-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/9074e67ca81d43ca94da2330f9f31816.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026022507003964B704856576B894E472&rrcfp=dafada99&x-expires=2088198039&x-signature=m2xih%2Biz9bW%2BYigwOBBB%2FsDCBsE%3D" alt="Musical If" class="card-img">
+                    <div class="card-body">
+                        <p>4-channel surround sound design for immersive musical in small theater</p>
+                        <div class="tags">
+                            <span class="tag">Stage Sound Design</span>
+                            <span class="tag">Live Control</span>
+                            <span class="tag">4.0 Surround Sound</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Project Details</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 4: 上海歌剧院交响乐团专场 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Shanghai Opera House Concert</h3>
+                    </div>
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/a0b3c759b78445d097e66f6618932585.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225070133672D4B5FC9FD2CDCE19C&rrcfp=dafada99&x-expires=2088198093&x-signature=rjI9YrbPXX880aUtWHS%2Bv%2B8J%2B1c%3D" alt="Shanghai Opera House Concert" class="card-img">
+                    <div class="card-body">
+                        <p>24-channel live recording for symphony orchestra vocal concert</p>
+                        <div class="tags">
+                            <span class="tag">Symphony Recording</span>
+                            <span class="tag">24-channel Input</span>
+                            <span class="tag">Acoustic Optimization</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Project Details</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 5: 巴赫《勃兰登堡协奏曲》 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Brandenburg Concertos</h3>
+                    </div>
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/4a36f18756d24e58b440b3835b671e1b.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225070401ED11F96F01FABE758978&rrcfp=dafada99&x-expires=2088198242&x-signature=t0kahMWgh%2Bx%2BR9Z%2F43UsZqwYebI%3D" alt="Brandenburg Concertos" class="card-img">
+                    <div class="card-body">
+                        <p>Chamber music concert recording with live broadcast for Shanghai Concert Hall</p>
+                        <div class="tags">
+                            <span class="tag">Chamber Music</span>
+                            <span class="tag">Live Broadcast</span>
+                            <span class="tag">Logic Pro</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Project Details</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 6: 董奕辰钢琴独奏作品集 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Dong Yichen Piano Solo Album</h3>
+                    </div>
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/2294a9d999dd4b04899933fdce5519dd.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225070401ED11F96F01FABE758978&rrcfp=dafada99&x-expires=2088198242&x-signature=pFDAnXg%2FbbMbs40hH8rZwfljsr8%3D" alt="Dong Yichen Piano Solo Album" class="card-img">
+                    <div class="card-body">
+                        <p>Professional piano solo album recording with audio-video synchronization</p>
+                        <div class="tags">
+                            <span class="tag">Piano Recording</span>
+                            <span class="tag">Audio-Video Sync</span>
+                            <span class="tag">Sound Tuning</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Project Details</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 7: 乌列热声乐作品集 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Wu Lie Re Vocal Album</h3>
+                    </div>
+                    <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/8f2c5e294ec940c48f0369e0b13f0dc8.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225070401ED11F96F01FABE758978&rrcfp=dafada99&x-expires=2088198242&x-signature=S%2FFY2ifZOA%2BCtZPGoAwEU328Frw%3D" alt="Wu Lie Re Vocal Album" class="card-img">
+                    <div class="card-body">
+                        <p>Soprano vocal album with piano accompaniment recording</p>
+                        <div class="tags">
+                            <span class="tag">Vocal Recording</span>
+                            <span class="tag">Piano Accompaniment</span>
+                            <span class="tag">Sound Balance</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Project Details</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 8: 沉浸声拾音技术研究 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Immersive Piano Recording Research</h3>
+                    </div>
+                    <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/6a3955c0927b4397b2b3db3b7a9b47b9.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=202602250706066BC1D47F8529DBBDA3D1&rrcfp=dafada99&x-expires=2088198366&x-signature=b3HZpnFbxoYpJvzCRMssFwbGt88%3D" alt="Immersive Piano Recording Research" class="card-img">
+                    <div class="card-body">
+                        <p>Master thesis on immersive sound recording technology for piano works</p>
+                        <div class="tags">
+                            <span class="tag">Academic Research</span>
+                            <span class="tag">Immersive Sound</span>
+                            <span class="tag">7.1.4 Channel</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Research Paper</a>
+                            <a href="#" target="_blank">Download Research Data</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 9: 电子音乐《黑白森林》 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Black and White Forest</h3>
+                    </div>
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/4e14d24a8af6490885dff521a6210c86.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225070814FF5947B5892A45949D9B&rrcfp=dafada99&x-expires=2088198494&x-signature=lJ4ZIBLOVjObmT7sPb2gw4VlXWA%3D" alt="Black and White Forest Electronic Music" class="card-img">
+                    <div class="card-body">
+                        <p>Independent electronic music creation with experimental sound design</p>
+                        <div class="tags">
+                            <span class="tag">Electronic Music</span>
+                            <span class="tag">Sound Design</span>
+                            <span class="tag">Cubase</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">Listen to the Work</a>
+                            <a href="#" target="_blank">Download Project File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 10: Dirac家庭影院调音 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <h3>Dirac Live Home Theater Tuning</h3>
+                    </div>
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/c76e4a30ff614f048caa0123c0a7865b.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260225070832FF5947B5892A45949DDE&rrcfp=dafada99&x-expires=2088198512&x-signature=JQFLcVKbBYiMHtgYZwWa9Ij%2FJ4I%3D" alt="Dirac Live Home Theater Tuning" class="card-img">
+                    <div class="card-body">
+                        <p>2.1/2.5 channel home theater tuning demo for Sonos clients</p>
+                        <div class="tags">
+                            <span class="tag">Audio Tuning</span>
+                            <span class="tag">Dirac Live</span>
+                            <span class="tag">Acoustic Calibration</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">View Tuning Report</a>
+                            <a href="#" target="_blank">Download Tuning Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2><i class="fas fa-university"></i> Education Background</h2>
+            
+            <div class="experience-item">
+                <h3>Shanghai Conservatory of Music - Master of Recording Arts</h3>
+                <div class="date">Sep 2022 - Jun 2026</div>
+                <ul>
+                    <li>Core Courses: Recording Fundamentals, Immersive Surround Sound Technology, Digital Audio Technology</li>
+                    <li>Thesis: Analysis of Immersive Sound Recording Technology in Piano Works</li>
+                    <li>Scholarship: Second-class Scholarship</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Communication University of Zhejiang - Bachelor of Art and Technology</h3>
+                <div class="date">Sep 2018 - Jun 2022</div>
+                <ul>
+                    <li>Core Courses: Computer Sequence Production, Music Design & Production, Multi-channel Surround Audio Technology</li>
+                    <li>Certifications: Grade 10 Electronic Keyboard, Grade 10 Accordion</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section>
+            <h2><i class="fas fa-award"></i> Awards & Honors</h2>
+            <ul style="list-style: disc; padding-left: 20px; font-size: 0.9rem;">
+                <li>First Prize, Shanghai Music Festival Team Competition</li>
+                <li>First Prize, Shanghai Micro Film Competition (Youth Group)</li>
+                <li>Third Prize, IEMC Internet Competition</li>
+                <li>Gold Award, 2016 Dandelion Youth Accordion Competition</li>
+                <li>First Prize, 13th China Art Star Accordion Competition</li>
+                <li>Special Prize, Provincial University Micro-course Teaching Competition</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Haobo Yu | Audio & Video Integration Engineer © 2026</p>
+            <p>Professional Focus: Sound Recording, Mixing, Audio System Tuning & Integration</p>
+        </footer>
+    </div>
+</body>
+</html>
